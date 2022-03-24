@@ -3,6 +3,7 @@ import React from 'react';
 import Background from './images/bg3.jpg';
 import './App.css';
 import Clock from './components/Clock'
+import NotificationPanel from './components/NotificationPanel'
 
 type S = {
   showBackground: boolean
@@ -37,7 +38,7 @@ class App extends React.Component<{}, S> {
       <h1 className="text-3xl font-bold underline">Hello world!</h1>
       <p>Dio porco <code>src/App.tsx</code> and save to reload {this.state.date.toLocaleTimeString()}.</p>
     </header> */}
-    <div></div>
+    <NotificationPanel />
     <Clock />
   </div>;
   }

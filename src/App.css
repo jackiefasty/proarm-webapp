@@ -13,7 +13,7 @@
 
 .bg-img {
   width: 100%;
-  height: auto;
+  height: 100vh;
   z-index: -1;
   transition: opacity .6s;
   opacity: 0;
@@ -23,12 +23,12 @@
 }
 
 .App {
-  text-align: center;
   height: 100vh;
   width: 100vw;
   display: grid;
   grid-template-columns: 2fr 1fr;
   background-size: contain;
+  overflow: hidden;
 }
 
 
