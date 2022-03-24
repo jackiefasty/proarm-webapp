@@ -1,0 +1,45 @@
+.clock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
+.clock p {
+    display: inline;
+    font-weight: bold;
+    /* margin: 0 auto; */
+}
+
+.info {
+    line-height: 20vh;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.time {
+    color: var(--primary-color);
+    text-align: center;
+    margin: 0 auto;
+}
+
+.hours {
+    font-size: 30vh;
+    line-height: 27vh;
+    padding-left: 0.2em;
+}
+
+.minutes {
+    font-size: 27vh;
+    line-height: 25vh;
+    padding-bottom: 2vh;
+}
+
+.weather {
+    font-size: 7vh;
+}
+
+.date {
+    color: var(--secondary-color);
+}
