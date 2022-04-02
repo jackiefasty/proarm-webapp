@@ -1,0 +1,8 @@
+.notification-list {
+    height: 100vh;
+    overflow: scroll;
+}
+
+.notification-list > :last-child {
+    margin-bottom: 80vh;
+}
