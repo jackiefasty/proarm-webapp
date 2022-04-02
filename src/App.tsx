@@ -1,8 +1,9 @@
 import React from 'react';
 // import logo from './logo.svg';
-import Background from './images/bg3.jpg';
+// import Background from './images/bg3.jpg';
 import './App.css';
 import Clock from './components/Clock'
+import Music from './components/Music'
 
 type S = {
   showBackground: boolean
@@ -32,13 +33,9 @@ class App extends React.Component<{}, S> {
   render() {
     return <div className="App" onClick={() => this.showBackground()}>
       <div className="bg bg-solid" />
-      <img src={Background} className={this.state.showBackground ? 'bg bg-img bg-img-show': 'bg bg-img'} alt='background'/>
-    {/* <header className="App-header">
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <p>Dio porco <code>src/App.tsx</code> and save to reload {this.state.date.toLocaleTimeString()}.</p>
-    </header> */}
+      <img src='https://picsum.photos/1920/1080' className={this.state.showBackground ? 'bg bg-img bg-img-show': 'bg bg-img'} alt='background'/>
     <div></div>
-    <Clock />
+    <Music />
   </div>;
   }
 }
