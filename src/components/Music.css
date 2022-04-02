@@ -1,0 +1,49 @@
+.music {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50vh;
+    width: 100vh;
+}
+
+.square{
+    width: 100px;
+    height: 100px;
+}
+
+.music {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    background-color: #585;
+    border-radius: 15px;
+}
+
+.music > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.albumCover {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: span 2;
+}
+.albumCover > img {
+    border-radius: 10px;
+}
+
+.controls {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 3;
+    grid-row-end: span 3;
+
+    background-color: #353;
+    border-radius: 0 0 15px 15px;
+
+}
