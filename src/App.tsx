@@ -34,11 +34,10 @@ class App extends React.Component<{}, S> {
   render() {
     return <div className="App" onClick={() => this.showBackground()}>
       <div className="bg bg-solid" />
-      <img src={Background} className={this.state.showBackground ? 'bg bg-img bg-img-show': 'bg bg-img'} alt='background'/>
-      <NotificationPanel />
-      <Clock />
       <img src='https://picsum.photos/1920/1080' className={this.state.showBackground ? 'bg bg-img bg-img-show': 'bg bg-img'} alt='background'/>
+      <NotificationPanel />
       <Music />
+      <Clock />
   </div>;
   }
 }
