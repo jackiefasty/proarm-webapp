@@ -1,49 +1,27 @@
 .music {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 50vh;
-    width: 100vh;
-}
-
-.square{
-    width: 100px;
-    height: 100px;
-}
-
-.music {
     display: grid;
-    grid-template-columns: 25% 75%;
-    grid-template-rows: 1fr 1fr 1fr;
-
-    background-color: #585;
+    grid-template-columns: 25% 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 100%;
+    width: 100%;
+    background-color: var(--secondary-color);
     border-radius: 15px;
-}
-
-.music > * {
-    display: flex;
-    justify-content: center;
     align-items: center;
-    font-weight: bold;
+    justify-items: center;
 }
-
-.albumCover {
-    grid-column-start: 1;
-    grid-column-end: 2;
+.music-album {
     grid-row-start: 1;
-    grid-row-end: span 2;
-}
-.albumCover > img {
-    border-radius: 10px;
+    grid-row-end: 2 span;
+    border-radius: 15px 0 0 15px;
 }
 
-.controls {
-    grid-column-start: 1;
-    grid-column-end: span 2;
-    grid-row-start: 3;
-    grid-row-end: span 3;
+.music-info {
+    grid-column-start: 2;
+    grid-column-end: 4 span;
+}
 
-    background-color: #353;
-    border-radius: 0 0 15px 15px;
-
+.title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

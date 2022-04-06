@@ -1,45 +1,51 @@
 .clock {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
     height: 100vh;
+    grid-template-rows: 20% 60% 20%;
+    justify-items: center;
+    align-items: center;
 }
 
 .clock p {
     display: inline;
     font-weight: bold;
-    /* margin: 0 auto; */
+    text-align: center;
+}
+.clock > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.time-wrapper {
+    align-items: flex-end;
+}
+.info-wrapper {
+    align-self: end;
 }
 
 .info {
-    line-height: 20vh;
-    width: 100%;
-    text-align: center;
     color: white;
 }
-
 .time {
     color: var(--primary-color);
-    text-align: center;
-    margin: 0 auto;
+    line-height: 29vh;
+}
+.date {
+    color: var(--secondary-color);
 }
 
 .hours {
-    font-size: 30vh;
-    line-height: 27vh;
-    padding-left: 0.2em;
+    font-size: 33vh;
 }
-
 .minutes {
-    font-size: 27vh;
-    line-height: 25vh;
-    padding-bottom: 2vh;
+    font-size: 30vh;
 }
-
 .weather {
     font-size: 7vh;
 }
 
-.date {
-    color: var(--secondary-color);
+.music-wrapper {
+    width: 90%;;
 }
+
+

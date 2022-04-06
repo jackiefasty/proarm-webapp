@@ -1,26 +1,25 @@
-.bg {
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
 .bg-solid {
+  position: absolute;
   width: 100vw;
   height: 100vh;
   background-color: black;
   z-index: -2;
 }
-
 .bg-img {
-  width: 100%;
+  position: absolute;
+  width: 100vw;
   height: 100vh;
   z-index: -1;
   transition: opacity .6s;
-  opacity: 0;
+  opacity: .2;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 .bg-img-show {
-  opacity: .4;
+  opacity: .5;
 }
+
 
 .App {
   height: 100vh;
@@ -29,39 +28,4 @@
   grid-template-columns: 2fr 1fr;
   background-size: contain;
   overflow: hidden;
-}
-
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
