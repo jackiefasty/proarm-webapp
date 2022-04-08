@@ -2,9 +2,13 @@ import React from 'react';
 import './NotificationPanel.css';
 import Notification, { P as NotificationProps } from './gears/Notification'
 import { mdiAccount } from '@mdi/js';
+import Icon from '@mdi/react';
+import { mdiMenuUp, mdiMenuRight } from '@mdi/js';
+import config from '../common/config'
 
 type S = {
   notifications: NotificationProps[];
+  closed: boolean;
 }
 
 
@@ -13,7 +17,7 @@ class NotificationPanel extends React.Component<{}, S> {
   constructor(props: {}) {
     super(props);
 
-    this.state = { notifications: [] }
+    this.state = { notifications: [], closed: false }
   }
 
   private addNotificationInterval: NodeJS.Timer | null = null;
@@ -38,11 +42,15 @@ class NotificationPanel extends React.Component<{}, S> {
     }
   }
 
+  close() {
+    this.setState({closed: !this.state.closed})
+  }
+  
   render() {
     return (
-      <div>
-        <div className='header px-10 pt-3 text-white'>
-          Notification
+      <div className={this.state.closed ? 'notifications-page closed': 'notifications-page'}>
+        <div className='header text-white'>
+          Notifications <div className='notification-counter'>{ this.state.notifications.length }</div>
         </div>
         <div className='notification-list'>
           {this.state.notifications.map((n, i) => (
@@ -53,6 +61,9 @@ class NotificationPanel extends React.Component<{}, S> {
               icon={mdiAccount}
             />
             ))}
+        </div>
+        <div className='close-notifications' onClick={ () => this.close() }>
+          <Icon path={ this.state.closed ? mdiMenuRight : mdiMenuUp } size={1} color={config.colors.primary} ></Icon>
         </div>
       </div>
     );

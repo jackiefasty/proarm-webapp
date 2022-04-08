@@ -1,8 +1,45 @@
-.notification-list {
+.notifications-page {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
     height: 100vh;
+}
+.notification-counter {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+}
+.closed {
+    height: 36px;
+    grid-template-rows: 1fr;
+    grid-template-columns: auto 1fr;
+}
+
+.header {
+    padding: 5px 0 0 2em;
+}
+
+.notification-list {
     overflow: scroll;
 }
 
-.notification-list > :last-child {
+.closed .notification-list {
+    display: none;
+}
+
+.close-notifications {
+    align-self: center;
+    justify-self: center;
+}
+.closed .close-notifications {
+    align-self: end;
+    justify-self: left;
+}
+
+.notification-list > :last-child > Notification {
     margin-bottom: 80vh;
 }
