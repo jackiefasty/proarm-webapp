@@ -1,0 +1,26 @@
+.menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 80%;
+    margin: 1em 0;
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+}
+
+.menu-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10% 1fr 30%;
+    height: 90%;
+    width: 90%;
+    align-items: center;
+    justify-items: center;
+    background-color: #f0629240;
+    border: 1px solid var(--primary-color);
+    border-radius: 1em;
+}
+.menu-item p {
+    align-self: start;
+}
