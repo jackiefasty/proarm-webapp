@@ -1,6 +1,10 @@
 //music.tsx file
 import React from "react";
 import "./Music.css";
+import Icon from '@mdi/react';
+import { mdiArrowRight, mdiArrowLeft, mdiPlay, mdiPause } from '@mdi/js';
+import config from '../common/config'
+
 // import cover1 from "../images/cov1.jpg";
 // import cover2 from "../images/cov2.jpg";
 // import cover3 from "../images/cov3.jpg";
@@ -44,14 +48,16 @@ class Music extends React.Component<{}, AudioState> {
 		};
 	}
 
+	playPause() {
+		this.setState({ playing: !this.state.playing });
+	}
+
 	nextSong() {
 		this.updateSongState(1);
 	}
 
 	prevSong() {
 		this.updateSongState(-1);
-
-
 	}
 
 	updateSongState(songSkip: number) {
@@ -67,17 +73,22 @@ class Music extends React.Component<{}, AudioState> {
 	render(){
 		return (
 			<div className="music">
-		    	<p className="albumCover">
-					{this.state.cover}
-					<img src="https://picsum.photos/150"></img>
-				</p>
-		    	<p className="title">{this.state.title}</p>
-		    	<p className="artist">{this.state.artist}</p>
-		    	<p className="controls">Controls</p>
-				{/* <button onClick={() => this.prevSong()}> Prev </button>
+				<img className='music-album' src="https://picsum.photos/150" alt="Album cover" />
+				<div className='music-info'>
+					<p className="title">{this.state.title} - {this.state.artist}</p>
+				</div>
+				<button onClick={() => this.prevSong()}>
+					<Icon path={ mdiArrowLeft } size={1} color={config.colors.primary} ></Icon>
+				</button>
+				<button onClick={() => this.playPause()}>
+					<Icon path={ this.state.playing ? mdiPlay : mdiPause } size={1} color={config.colors.primary} ></Icon>
+				</button>
+				<button onClick={() => this.nextSong()}>
+					<Icon path={ mdiArrowRight } size={1} color={config.colors.primary} ></Icon>
+				</button>
+				{/* <button > Prev </button>
 				<button onClick={() => this.nextSong()}> Next </button> */}
-		    </div>
-		    
+		</div>
 		);
 
 

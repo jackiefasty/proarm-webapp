@@ -1,5 +1,6 @@
 import React from 'react';
 import './Clock.css';
+import Music from './Music'
 
 type S = {
   hours: string;
@@ -42,10 +43,17 @@ class Clock extends React.Component<{}, S> {
   render() {
     return (
       <div className='clock'>
-        <p className="weather info">🌥️ 8° C</p>
-        <p className="time hours">{ this.state.hours }</p>
-        <p className="time minutes">:{ this.state.minutes }</p>
-        <p className="date info">{ this.state.date }</p>
+        <div className='info-wrapper'>
+          <p className="info date">{ this.state.date }</p>
+          <p className="info weather">🌥️ 8° C</p>
+        </div>
+        <div className='time-wrapper'>
+          <p className="time hours">{ this.state.hours }</p>
+          <p className="time minutes">{ `:${this.state.minutes.padStart(2, '0')}` }</p>
+        </div>
+        <div className='music-wrapper'>
+          <Music />
+        </div>
       </div>
     );
   }
