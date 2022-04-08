@@ -17,7 +17,7 @@ class NotificationPanel extends React.Component<{}, S> {
   constructor(props: {}) {
     super(props);
 
-    this.state = { notifications: [], closed: false }
+    this.state = { notifications: [], closed: true }
   }
 
   private addNotificationInterval: NodeJS.Timer | null = null;
