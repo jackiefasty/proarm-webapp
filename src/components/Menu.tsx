@@ -44,6 +44,10 @@ class Music extends React.Component<{}, MenuState> {
 	openInstagram() {
 		window.location.href  = `intent://instagram.com/#Intent;scheme=https;package=com.instagram.android;end`;
 	}
+	openApp(name: string) {
+		window.location.href  = `intent:#Intent;scheme=https;package=com.google.android.calculator;end`;
+
+	}
 
 	render(){
 		return (
@@ -51,7 +55,7 @@ class Music extends React.Component<{}, MenuState> {
 				{ this.menuIcon(0, 'Light', mdiTorch) }
 				{ this.menuIcon(1, 'Phone', mdiPhone, () => this.openPhone() ) }
 				{ this.menuIcon(2 ,'Instagram', mdiTorch, () => this.openInstagram() ) }
-				{ this.menuIcon(3 ,'Light', mdiTorch) }
+				{ this.menuIcon(3 ,'Calculator', mdiTorch, () => this.openApp('')) }
 				{ this.menuIcon(4, 'Light', mdiTorch) }
 				{ this.menuIcon(5, 'Light', mdiTorch) }
 			</div>
