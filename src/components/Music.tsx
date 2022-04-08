@@ -5,10 +5,14 @@ import Icon from '@mdi/react';
 import { mdiArrowRight, mdiArrowLeft, mdiPlay, mdiPause } from '@mdi/js';
 import config from '../common/config'
 
-// import cover1 from "../images/cov1.jpg";
-// import cover2 from "../images/cov2.jpg";
-// import cover3 from "../images/cov3.jpg";
-// import cover4 from "../images/cov4.jpg";
+//importing cover images for songs
+import cover0 from "../images/cov0.png";
+import cover1 from "../images/cov1.jpg";
+import cover2 from "../images/cov2.jpg";
+import cover3 from "../images/cov3.jpg";
+import cover4 from "../images/cov4.jpg";
+
+//TODO importing audio tracks for songs
 
 type SongInfo = {
 	title: string;
@@ -22,16 +26,13 @@ type AudioState = SongInfo & {
 	volume: number;
 }
 
-
-
-
 class Music extends React.Component<{}, AudioState> {
 
 	private readonly songs: SongInfo[] = [
-		{ artist: 'Bad Bunny',  title: 'Yonagui',  cover: ''  },
-		{ artist: 'Bad Bunny',  title: 'Volvi',  cover: ''  },
-		{ artist: 'Bad Bunny',  title: 'A Tu Merced',  cover: ''  },
-		{ artist: 'Daddy Jankee',  title: 'Volando',  cover: ''  },
+		{ artist: 'Bad Bunny',  title: 'Yonagui',  cover: cover1  },
+		{ artist: 'Bad Bunny',  title: 'Volvi',  cover: cover2  },
+		{ artist: 'Bad Bunny',  title: 'A Tu Merced',  cover: cover3  },
+		{ artist: 'Daddy Jankee',  title: 'Volando',  cover: cover4  },
 	];
 
 	private songI: number = 0;
@@ -40,7 +41,7 @@ class Music extends React.Component<{}, AudioState> {
 		super(props);
 		this.state = {
 			artist: 'Artist',
-			cover: '',
+			cover: cover0,
 			title: 'Title',
 			playing: true,
 			volume: 4,
@@ -73,7 +74,7 @@ class Music extends React.Component<{}, AudioState> {
 	render(){
 		return (
 			<div className="music">
-				<img className='music-album' src="https://picsum.photos/150" alt="Album cover" />
+				<img className='music-album' src={this.state.cover} alt="Album cover" /> {/*"https://picsum.photos/150"*/}
 				<div className='music-info'>
 					<p className="title">{this.state.title} - {this.state.artist}</p>
 				</div>
