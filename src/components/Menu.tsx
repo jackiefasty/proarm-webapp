@@ -8,9 +8,6 @@ import { mdiTorch } from '@mdi/js';
 type MenuState = {
 }
 
-
-
-
 class Music extends React.Component<{}, MenuState> {
 
 	constructor(props: {}){
