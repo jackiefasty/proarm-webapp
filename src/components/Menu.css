@@ -20,6 +20,13 @@
     background-color: #f0629240;
     border: 1px solid var(--primary-color);
     border-radius: 1em;
+    transition: 0.1s;
+}
+.menu-item:active {
+    background-color: #f0629290;
+}
+.menu-item.active {
+    background-color: #f0629290;
 }
 .menu-item p {
     align-self: start;
