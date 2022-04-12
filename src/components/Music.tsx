@@ -13,16 +13,10 @@ import cover3 from "../images/cov3.jpg";
 import cover4 from "../images/cov4.jpg";
 
 //importing audio tracks for songs
-/*import song1 from "./music/aud1.mp3";
-import song2 from "./music/aud2.mp3";
-import song3 from "./music/aud3.mp3";
-import song4 from "./music/aud4.mp3";*/
-
 const song1 = require("../music/aud1.mp3");
 const song2 = require("../music/aud1.mp3");
 const song3 = require("../music/aud1.mp3");
 const song4 = require("../music/aud1.mp3");
-
 
 type SongInfo = {
 	title: string;
@@ -59,7 +53,6 @@ class Music extends React.Component<{}, AudioState> {
 			duration: 6,
 			audio: new Audio(song1),
 		};
-
 	}
 
 	playPause() {
@@ -118,8 +111,6 @@ class Music extends React.Component<{}, AudioState> {
 				<button onClick={() => this.nextSong()}>
 					<Icon path={ mdiArrowRight } size={1} color={config.colors.primary} ></Icon>
 				</button>
-				{/* <button > Prev </button>
-				<button onClick={() => this.nextSong()}> Next </button> */}
 		</div>
 		);
 
