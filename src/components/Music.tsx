@@ -32,6 +32,7 @@ class Music extends React.Component<{}, AudioState> {
 		{ artist: 'Bad Bunny',  title: 'Volvi',  cover: cover2, audio: "/music/aud2.mp3"  },
 		{ artist: 'Bad Bunny',  title: 'A Tu Merced',  cover: cover3, audio: "/music/aud3.mp3"  },
 		{ artist: 'Daddy Jankee',  title: 'Volando',  cover: cover4, audio: "/music/aud4.mp3"  },
+		//{ artist: 'Daddy Jankee',  title: 'Volando',  cover: cover5, audio: song5  }
 	];
 
 	private audio: HTMLAudioElement | null = null;
