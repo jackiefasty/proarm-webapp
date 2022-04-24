@@ -3,7 +3,7 @@ import React from "react";
 import "./Menu.css";
 import config from '../common/config'
 import Icon from '@mdi/react';
-import { mdiTorch, mdiPhone, mdiInstagram, mdiCalculator, mdiClock, mdiWhatsapp, mdiContactlessPayment  } from '@mdi/js';
+import { mdiTorch, mdiPhone, mdiInstagram, mdiCalculator, mdiWhatsapp, mdiContactlessPayment  } from '@mdi/js';
 
 type MenuState = {
 	active: boolean[];
