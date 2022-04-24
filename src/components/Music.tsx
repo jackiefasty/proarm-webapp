@@ -38,6 +38,7 @@ class Music extends React.Component<{}, AudioState> {
 		{ artist: 'Bad Bunny',  title: 'Volvi',  cover: cover2, audio: song2  },
 		{ artist: 'Bad Bunny',  title: 'A Tu Merced',  cover: cover3, audio: song3  },
 		{ artist: 'Daddy Jankee',  title: 'Volando',  cover: cover4, audio: song4  },
+		//{ artist: 'Daddy Jankee',  title: 'Volando',  cover: cover5, audio: song5  },
 	];
 
 	private songI: number = 0;
