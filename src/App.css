@@ -30,3 +30,13 @@
   overflow: hidden;
 }
 
+.hide > * {
+  display: none !important;
+  opacity: 0;
+}
+
+.hide .to-hide {
+  display: none !important;
+}
+
+

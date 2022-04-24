@@ -35,7 +35,7 @@ class App extends React.Component<{}, S> {
       <div className="App" onClick={() => this.showBackground()}>
         <div className="bg-solid" />
         <div className={this.state.showBackground ? 'bg-img bg-img-show': 'bg-img'}  style={{ backgroundImage: `url("${Background}")` }} />
-        <div className='notification-panel-wrapper'>
+        <div className={this.state.showBackground ? 'notification-panel-wrapper': 'hide notification-panel-wrapper'}>
           <NotificationPanel />
           <Menu />
         </div>

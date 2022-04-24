@@ -87,7 +87,7 @@ class Music extends React.Component<{}, AudioState> {
 
 	render(){
 		return (
-			<div className="music">
+			<div className="music to-hide">
 				<img className='music-album' src={this.state.cover} alt="Album cover" />
 				<div className='music-info'>
 					<p className="title">{this.state.title} - {this.state.artist} - { this.state.isPlaying }</p>
