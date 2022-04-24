@@ -12,17 +12,11 @@ import cover2 from "../images/cov2.jpg";
 import cover3 from "../images/cov3.jpg";
 import cover4 from "../images/cov4.jpg";
 
-//importing audio tracks for songs
-const song1 = require("../music/aud1.mp3");
-const song2 = require("../music/aud1.mp3");
-const song3 = require("../music/aud1.mp3");
-const song4 = require("../music/aud1.mp3");
-
 type SongInfo = {
 	title: string;
 	artist: string;
 	cover: string;
-	audio: HTMLAudioElement;
+	audio: string | null;
 }
 
 type AudioState = SongInfo & {
@@ -34,13 +28,14 @@ type AudioState = SongInfo & {
 class Music extends React.Component<{}, AudioState> {
 
 	private readonly songs: SongInfo[] = [
-		{ artist: 'Bad Bunny',  title: 'Yonagui',  cover: cover1, audio: song1 },
-		{ artist: 'Bad Bunny',  title: 'Volvi',  cover: cover2, audio: song2  },
-		{ artist: 'Bad Bunny',  title: 'A Tu Merced',  cover: cover3, audio: song3  },
-		{ artist: 'Daddy Jankee',  title: 'Volando',  cover: cover4, audio: song4  },
-		//{ artist: 'Daddy Jankee',  title: 'Volando',  cover: cover5, audio: song5  },
+		{ artist: 'Bad Bunny',  title: 'Yonagui',  cover: cover1, audio: "/music/aud1.mp3" },
+		{ artist: 'Bad Bunny',  title: 'Volvi',  cover: cover2, audio: "/music/aud2.mp3"  },
+		{ artist: 'Bad Bunny',  title: 'A Tu Merced',  cover: cover3, audio: "/music/aud3.mp3"  },
+		{ artist: 'Daddy Jankee',  title: 'Volando',  cover: cover4, audio: "/music/aud4.mp3"  },
+		//{ artist: 'Daddy Jankee',  title: 'Volando',  cover: cover5, audio: song5  }
 	];
 
+	private audio: HTMLAudioElement | null = null;
 	private songI: number = 0;
 
 	constructor(props: {}){
@@ -52,38 +47,26 @@ class Music extends React.Component<{}, AudioState> {
 			isPlaying: false,
 			volume: 4,
 			duration: 6,
-			audio: new Audio(song1),
+			audio: null,
 		};
 	}
 
 	playPause() {
-		let isPlaying = this.state.isPlaying;
-
-		if (isPlaying) {
-			// Pause the song if it is playing
-			this.state.audio.pause();
-		  } else {
-	  
-			// Play the song if it is paused
-			this.state.audio.play();
-		  }
-
-		  this.setState({ isPlaying: !this.state.isPlaying });
-
+		console.log("MUSICA")
+		if (this.state.isPlaying) {
+			this.audio?.play()
+		} else {
+			this.audio?.pause()
+		}
+		this.setState({ isPlaying: !this.state.isPlaying });
 	}
 
 	nextSong() {
 		this.updateSongState(1);
-		this.state.audio.load();
-		this.state.audio.play();
-
 	}
 
 	prevSong() {
 		this.updateSongState(-1);
-		this.state.audio.load();
-		this.state.audio.play();
-
 	}
 
 	updateSongState(songSkip: number) {
@@ -94,14 +77,20 @@ class Music extends React.Component<{}, AudioState> {
 			artist: song?.artist ?? '',
 			cover: song?.cover ?? '',
 		})
+		this.audio?.pause()
+		this.audio = song?.audio ? new Audio(song.audio) : null;
+		console.log(song?.audio);
+		if (this.state.isPlaying) {
+			this.audio?.play();
+		}
 	}
 
 	render(){
 		return (
 			<div className="music">
-				<img className='music-album' src={this.state.cover} alt="Album cover" /> {/*"https://picsum.photos/150"*/}
+				<img className='music-album' src={this.state.cover} alt="Album cover" />
 				<div className='music-info'>
-					<p className="title">{this.state.title} - {this.state.artist}</p>
+					<p className="title">{this.state.title} - {this.state.artist} - { this.state.isPlaying }</p>
 				</div>
 				<button onClick={() => this.prevSong()}>
 					<Icon path={ mdiArrowLeft } size={1} color={config.colors.primary} ></Icon>

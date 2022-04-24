@@ -26,7 +26,7 @@ class NotificationPanel extends React.Component<{}, S> {
       this.setState((prevState) => ({
         notifications: [...prevState.notifications, this.getNotification()]
       }));
-    }, 3000);
+    }, 10000);
   }
 
   componentWillUnmount() {
