@@ -52,7 +52,7 @@ class Clock extends React.Component<{}, S> {
           <p className="time minutes">{ `:${this.state.minutes.padStart(2, '0')}` }</p>
         </div>
         <div className='music-wrapper'>
-          {/* <Music /> */}
+          <Music />
         </div>
       </div>
     );
