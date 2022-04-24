@@ -3,7 +3,7 @@ import React from "react";
 import "./Menu.css";
 import config from '../common/config'
 import Icon from '@mdi/react';
-import { mdiTorch, mdiPhone, mdiInstagram, mdiCalculator, mdiClock, mdiWhatsapp  } from '@mdi/js';
+import { mdiTorch, mdiPhone, mdiInstagram, mdiCalculator, mdiClock, mdiWhatsapp, mdiContactlessPayment  } from '@mdi/js';
 
 type MenuState = {
 	active: boolean[];
@@ -63,7 +63,7 @@ class Music extends React.Component<{}, MenuState> {
 				{ this.menuIcon(2, 'Light', mdiTorch, () => {}, true) }
 				{ this.menuIcon(3 ,'Instagram', mdiInstagram, () => this.openInstagram() ) }
 				{ this.menuIcon(4, 'Whatsapp ', mdiWhatsapp, () => this.openWhatsapp() ) }
-				{ this.menuIcon(5, 'Clock', mdiClock, () => this.openClock() ) }
+				{ this.menuIcon(5, 'NFC', mdiContactlessPayment, () => {}, true ) }
 			</div>
 		);
 
