@@ -3,7 +3,7 @@ import React from "react";
 import "./Menu.css";
 import config from '../common/config'
 import Icon from '@mdi/react';
-import { mdiTorch, mdiPhone } from '@mdi/js';
+import { mdiTorch, mdiPhone, mdiInstagram, mdiCalculator, mdiClock, mdiWhatsapp  } from '@mdi/js';
 
 type MenuState = {
 	active: boolean[];
@@ -41,20 +41,25 @@ class Music extends React.Component<{}, MenuState> {
 	openInstagram() {
 		window.location.href  = `intent://instagram.com/#Intent;scheme=https;package=com.instagram.android;end`;
 	}
-	openApp(name: string) {
+	openCalculator() {
 		window.location.href  = `intent:#Intent;scheme=https;package=com.google.android.calculator;end`;
-
+	}
+	openClock() {
+		window.location.href  = `intent:#Intent;scheme=https;package=com.android.deskclock.DeskClock;end`;
+	}
+	openWhatsapp() {
+		window.location.href  = `https://wa.me`;
 	}
 
 	render(){
 		return (
 			<div className="menu">
-				{ this.menuIcon(0, 'Light', mdiTorch) }
-				{ this.menuIcon(1, 'Phone', mdiPhone, () => this.openPhone() ) }
-				{ this.menuIcon(2 ,'Instagram', mdiTorch, () => this.openInstagram() ) }
-				{ this.menuIcon(3 ,'Calculator', mdiTorch, () => this.openApp('')) }
-				{ this.menuIcon(4, 'Light', mdiTorch) }
-				{ this.menuIcon(5, 'Light', mdiTorch) }
+				{ this.menuIcon(0, 'Phone', mdiPhone, () => this.openPhone() ) }
+				{ this.menuIcon(1 ,'Calculator', mdiCalculator , () => this.openCalculator()) }
+				{ this.menuIcon(2, 'Light', mdiTorch) }
+				{ this.menuIcon(3 ,'Instagram', mdiInstagram, () => this.openInstagram() ) }
+				{ this.menuIcon(4, 'Whatsapp ', mdiWhatsapp, () => this.openWhatsapp() ) }
+				{ this.menuIcon(5, 'Clock', mdiClock, () => this.openClock() ) }
 			</div>
 		);
 
