@@ -22,11 +22,15 @@ class Music extends React.Component<{}, MenuState> {
 		this.setState({ active: a });
 	}
 
-	menuIcon(i: number, text: string, icon: string, action: () => void = () => {}) {
+	menuIcon(i: number, text: string, icon: string, action: () => void = () => {}, keep: boolean = false) {
 		return (
 			<div
 				className={this.state.active[i] ? 'menu-item active': 'menu-item'}
-				onClick={ () => { this.activateMenuItem(i); action() } }
+				onClick={ () => {
+					this.activateMenuItem(i);
+					action();
+					if (!keep) setTimeout(() => this.activateMenuItem(i), 500);
+				} }
 			>
 				<div></div>
 				<Icon path={ icon } size={3} color={config.colors.primary} ></Icon>
@@ -48,7 +52,7 @@ class Music extends React.Component<{}, MenuState> {
 		window.location.href  = `intent:#Intent;scheme=https;package=com.android.deskclock.DeskClock;end`;
 	}
 	openWhatsapp() {
-		window.location.href  = `https://wa.me`;
+		window.location.href  = `https://wa.me/34634406243`;
 	}
 
 	render(){
@@ -56,7 +60,7 @@ class Music extends React.Component<{}, MenuState> {
 			<div className="menu">
 				{ this.menuIcon(0, 'Phone', mdiPhone, () => this.openPhone() ) }
 				{ this.menuIcon(1 ,'Calculator', mdiCalculator , () => this.openCalculator()) }
-				{ this.menuIcon(2, 'Light', mdiTorch) }
+				{ this.menuIcon(2, 'Light', mdiTorch, () => {}, true) }
 				{ this.menuIcon(3 ,'Instagram', mdiInstagram, () => this.openInstagram() ) }
 				{ this.menuIcon(4, 'Whatsapp ', mdiWhatsapp, () => this.openWhatsapp() ) }
 				{ this.menuIcon(5, 'Clock', mdiClock, () => this.openClock() ) }
